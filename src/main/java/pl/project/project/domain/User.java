@@ -5,7 +5,8 @@ import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.util.Collection;
 
 @Entity
@@ -16,20 +17,22 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
+    @Size(min = 6, max = 15, message = "Login must be between 6 and 15 characters")
+    @NotBlank(message = "Login cannot be null")
     @Column(nullable = false, unique = true)
     private String login;
 
-    @NotNull
+    @Size()
+    @NotBlank(message = "Password cannot be null")
     @Column(nullable = false)
     private String password;
 
     @Email
-    @NotNull
+    @NotBlank(message = "Email cannot be null")
     @Column(nullable = false, unique = true)
     private String email;
 
-    @NotNull
+    @NotBlank(message = "Nick cannot be null")
     @Column(nullable = false)
     private String nick;
 
