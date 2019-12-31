@@ -21,6 +21,9 @@ public class Project {
     @OneToOne
     private Sprint sprint;
 
+    @OneToMany(mappedBy = "project")
+    private List<Board> boards;
+
     @OneToMany
     private List<ProjectUser> projectUser;
 
