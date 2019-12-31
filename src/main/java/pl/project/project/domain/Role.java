@@ -1,6 +1,7 @@
 package pl.project.project.domain;
 
 import lombok.Data;
+import pl.project.project.domain.enums.RoleUser;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,4 +15,6 @@ public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    private RoleUser roleUser;
 }

@@ -7,7 +7,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-import java.util.Collection;
+import java.util.List;
 
 @Entity
 @Data
@@ -38,9 +38,9 @@ public class User {
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE,
             CascadeType.DETACH, CascadeType.REFRESH})
-    private Collection<Role> role;
+    private List<Role> role;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    private Collection<Project> project;
+    private List<Project> project;
 
 }

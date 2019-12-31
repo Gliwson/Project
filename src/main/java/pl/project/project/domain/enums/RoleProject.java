@@ -1,5 +1,5 @@
 package pl.project.project.domain.enums;
 
 public enum RoleProject {
-    ADMIN, MODERATOR, USER, GHOST
+    ADMIN_PROJECT, MODERATOR_PROJECT, uSER_PROJECT, GHOST_PROJECT
 }

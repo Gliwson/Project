@@ -4,7 +4,6 @@ import lombok.Data;
 import pl.project.project.domain.enums.Level;
 
 import javax.persistence.*;
-import java.util.Collection;
 import java.util.List;
 
 @Entity
@@ -19,10 +18,13 @@ public class Project {
 
     private Level level;
 
+    @OneToOne
+    private Sprint sprint;
+
     @OneToMany
     private List<ProjectUser> projectUser;
 
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "project")
-    private Collection<User> user;
+    private List<User> user;
 
 }
