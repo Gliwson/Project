@@ -8,6 +8,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
@@ -38,9 +39,15 @@ public class User {
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE,
             CascadeType.DETACH, CascadeType.REFRESH})
-    private List<Role> role;
+    private Set<Role> role;
+
 
     @ManyToMany(cascade = CascadeType.ALL)
     private List<Project> project;
 
+    @Transient
+    private int nrRoli;
+
+    @Transient
+    private String newPassword;
 }
