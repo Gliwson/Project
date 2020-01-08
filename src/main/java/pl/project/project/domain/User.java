@@ -46,7 +46,7 @@ public class User {
     private List<Project> project;
 
     @Transient
-    private int nrRoli;
+    private int nrRole;
 
     @Transient
     private String newPassword;
