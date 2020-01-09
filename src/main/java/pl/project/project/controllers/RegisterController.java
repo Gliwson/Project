@@ -6,14 +6,12 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import pl.project.project.controllers.dtos.UserDTO;
 import pl.project.project.services.UserService;
 
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("/users")
 public class RegisterController {
 
     private UserService userService;
