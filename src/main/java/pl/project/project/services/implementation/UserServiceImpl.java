@@ -20,7 +20,7 @@ public class UserServiceImpl implements UserService {
     public Long addUser(UserDTO userDTO) {
         User user = Optional.ofNullable(userDTO)
                 .map(UserMapper::mapUserDtoToUser)
-                .orElseThrow(NullPointerException::new);
+                .orElseThrow(() -> new NullPointerException("UserDto is null"));
         User save = userRepository.save(user);
         return save.getId();
     }

@@ -9,8 +9,11 @@ import pl.project.project.controllers.dtos.UserDTO;
 import pl.project.project.domain.User;
 import pl.project.project.repositories.UserRepository;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
+import static org.mockito.Mockito.never;
 
 @ExtendWith(MockitoExtension.class)
 class UserServiceImplTest {
@@ -21,9 +24,6 @@ class UserServiceImplTest {
     @Mock
     private UserRepository userRepository;
 
-    @Mock
-    private UserMapper userMapper;
-
     @Test
     void shouldBeAbleToAddedUser() {
         //given
@@ -31,9 +31,18 @@ class UserServiceImplTest {
         User user = new User();
         given(userRepository.save(user)).willReturn(user);
         //when
-        Long aLong = userServiceImpl.addUser(userDTO);
+        userServiceImpl.addUser(userDTO);
         //then
         then(userRepository).should().save(user);
+    }
+
+    @Test
+    void theAddUserMethodShouldThrowExceptionIfUserDtoIsNull() {
+        //given
+        //when
+        //then
+        assertThrows(NullPointerException.class, () -> userServiceImpl.addUser(null));
+        then(userRepository).should(never()).save(any());
 
 
     }

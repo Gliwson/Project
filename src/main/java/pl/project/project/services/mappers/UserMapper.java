@@ -7,6 +7,9 @@ public class UserMapper {
 
     public static User mapUserDtoToUser(UserDTO userDTO) {
         User user = new User();
-        user
+        user.setEmail(userDTO.getEmail());
+        user.setLogin(userDTO.getUsername());
+        user.setPassword(userDTO.getPassword());
+        return user;
     }
 }
