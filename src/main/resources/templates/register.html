@@ -53,17 +53,19 @@
 
                 <p>
                     <label for="username">Username</label>
-                    <input type="text" id="username" name="username" class="form-control"/>
+                    <input type="text" id="username" name="username" class="form-control"
+                           th:value="${user.getUsername()}">
                     <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
                 </p>
                 <p>
                     <label for="password">Password</label>
-                    <input type="password" id="password" name="password" class="form-control"/>
+                    <input type="password" id="password" name="password" class="form-control"
+                           th:value="${user.getPassword()}"/>
                     <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</span>
                 </p>
                 <p>
                     <label for="email">Email</label>
-                    <input type="email" id="email" name="email" class="form-control"/>
+                    <input type="email" id="email" name="email" class="form-control" th:value="${user.getEmail()}"/>
                     <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</span>
                 </p>
                 <br/>

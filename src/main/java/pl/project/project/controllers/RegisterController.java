@@ -16,7 +16,6 @@ public class RegisterController {
 
     private UserService userService;
 
-    private UserDTO userDTO2;
 
     public RegisterController(UserService userService) {
         this.userService = userService;
@@ -32,17 +31,11 @@ public class RegisterController {
     @PostMapping("/register")
     public String registerUser(@Valid @ModelAttribute("user") UserDTO userDTO, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            userDTO2 = userDTO;
-            return "redirect:/register2";
+            return "register";
         }
         userService.addUser(userDTO);
         return "redirect:/login";
     }
 
-    @GetMapping("/register2")
-    public String dasdas(Model model) {
-        model.addAttribute("user", userDTO2);
-        return "register";
-    }
 
 }

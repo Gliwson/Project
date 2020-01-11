@@ -8,6 +8,7 @@ import pl.project.project.repositories.UserRepository;
 import pl.project.project.services.UserService;
 import pl.project.project.services.mappers.UserMapper;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -27,5 +28,25 @@ public class UserServiceImpl implements UserService {
                 .orElseThrow(() -> new NullPointerException("UserDto is null"));
         User save = userRepository.save(user);
         return save.getId();
+    }
+
+    @Override
+    public List<UserDTO> findAll() {
+        return null;
+    }
+
+    @Override
+    public UserDTO findById(Long id) {
+        return null;
+    }
+
+    @Override
+    public UserDTO updateUser(Long id, UserDTO userDTO) {
+        return null;
+    }
+
+    @Override
+    public void deleteUserById(Long id) {
+
     }
 }

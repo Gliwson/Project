@@ -34,6 +34,9 @@ public class User {
     @ManyToMany(cascade = CascadeType.ALL)
     private List<Project> project;
 
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    private Set<Authority> authoritySet;
+
     @Transient
     private int nrRole;
 
