@@ -21,6 +21,7 @@ public class UserMapper {
         user.setEmail(userDTO.getEmail());
         user.setUsername(userDTO.getUsername());
         user.setPassword(new BCryptPasswordEncoder().encode(userDTO.getPassword()));
+
         Authority authority = new Authority();
         authority.setAuthority("ADMIN");
         authority.setUser(user);
