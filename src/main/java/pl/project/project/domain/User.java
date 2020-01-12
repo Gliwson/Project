@@ -37,9 +37,9 @@ public class User {
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     private Set<Authority> authoritySet;
 
-    @Transient
-    private int nrRole;
-
-    @Transient
-    private String newPassword;
+//    @Transient
+//    private int nrRole;
+//
+//    @Transient
+//    private String newPassword;
 }

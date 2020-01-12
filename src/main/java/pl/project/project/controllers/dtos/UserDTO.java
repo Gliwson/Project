@@ -13,7 +13,7 @@ public class UserDTO {
     private String username;
 
     @NotBlank
-    @Size(max = 4)
+    @Size(max = 100)
     private String password;
 
     @Email

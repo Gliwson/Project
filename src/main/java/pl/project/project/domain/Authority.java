@@ -15,6 +15,7 @@ public class Authority implements GrantedAuthority {
     private String authority;
 
     @ManyToOne
+    @Column(name = "likeee")
     private User user;
 
     @Override

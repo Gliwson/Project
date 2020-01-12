@@ -26,7 +26,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         }
 
         CustomUserDetails customUserDetails = UserDetailsMapper.mapUserToUserDetails(user);
-        return customUserDetails;
+        return new org.springframework.security.core.userdetails.User(customUserDetails.getUsername(),
+                customUserDetails.getPassword(), customUserDetails.getAuthorities());
     }
 
 }

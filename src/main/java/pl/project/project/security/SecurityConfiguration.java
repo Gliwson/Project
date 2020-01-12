@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 
 @Configuration
@@ -39,12 +40,16 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
 //               .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/register")
-                .permitAll()
-                .anyRequest().authenticated()
+//                .antMatchers("/").permitAll()
+                .antMatchers("/register").permitAll()
+                .antMatchers("/admin").hasAuthority("ADMIN")
+                .anyRequest().permitAll()
                 .and()
                 .formLogin().loginPage("/login")
                 .defaultSuccessUrl("/dashboard", true)
-                .permitAll();
+                .permitAll()
+                .and()
+                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/");
     }
 }

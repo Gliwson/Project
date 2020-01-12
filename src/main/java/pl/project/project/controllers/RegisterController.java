@@ -28,7 +28,7 @@ public class RegisterController {
         return "register";
     }
 
-    @PostMapping("/register")
+    @PostMapping("/register2")
     public String registerUser(@Valid @ModelAttribute("user") UserDTO userDTO, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "register";
